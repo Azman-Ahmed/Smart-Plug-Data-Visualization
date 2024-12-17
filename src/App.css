@@ -15,16 +15,6 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow behind the sidebar */
 }
 
-.dashboard {
-  flex: 1; /* Fill remaining horizontal space */
-  height: 70%; /* Take full height of the parent */
-  padding: 20px;
-  margin-top: 100px;
-  overflow-y: auto; /* Prevent overflow issues */
-}
 
-.chart-container {
-  height: 100%; /* Make the chart take up all available height */
-}
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Papa from "papaparse";
 import "./HomeContent.css";
@@ -26,6 +26,7 @@ const HomeContent = () => {
 
     return (
         <div className="home-content">
+
             {columns.length > 0 &&
                 columns.map((col, index) => (
                     <div

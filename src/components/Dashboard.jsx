@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import Papa from "papaparse";
+import './Dashboard.css'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,6 +13,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import Sidebar from "./Sidebar.jsx";
 
 // Register Chart.js components
 ChartJS.register(
@@ -109,6 +111,7 @@ const Dashboard = () => {
 
   return (
       <div className="dashboard">
+        {/*<Sidebar/>*/}
         <div className="chart-container">
           {chartData.labels.length > 0 ? (
               <Line data={chartData} options={options} />
