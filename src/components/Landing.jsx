@@ -18,7 +18,7 @@ const Landing = () => {
         >
             <h1 className="landing-title">CSE407 : Green Computing</h1>
             <button className="landing-button" onClick={() => navigate("/Home")}>
-                Start
+                Go to Dashboard
             </button>
         </div>
     );

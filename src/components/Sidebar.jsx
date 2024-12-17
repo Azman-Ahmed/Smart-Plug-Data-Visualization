@@ -5,7 +5,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="logo">
-                <img src="/tuya_logo.png" alt="Logo" />
+                <img src="/white.png" alt="Logo" />
             </div>
             <nav>
                 <ul>
