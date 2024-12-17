@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import Papa from "papaparse";
-import './Dashboard.css'
+import './Dashboard.css';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,7 +13,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import Sidebar from "./Sidebar.jsx";
 
 // Register Chart.js components
 ChartJS.register(
@@ -27,7 +26,8 @@ ChartJS.register(
 );
 
 const Dashboard = () => {
-  const { fileName } = useParams(); // Get the file name from the route parameter
+  const { fileName } = useParams();
+  const navigate = useNavigate(); // Initialize the navigate hook
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [],
@@ -39,7 +39,6 @@ const Dashboard = () => {
         const response = await fetch(`/${fileName}.csv`);
         const csvText = await response.text();
 
-        // Parse CSV
         Papa.parse(csvText, {
           header: true,
           skipEmptyLines: true,
@@ -97,7 +96,7 @@ const Dashboard = () => {
     };
 
     fetchData();
-  }, [fileName]); // Refetch data whenever the file name changes
+  }, [fileName]);
 
   const options = {
     responsive: true,
@@ -111,13 +110,15 @@ const Dashboard = () => {
 
   return (
       <div className="dashboard">
-        {/*<Sidebar/>*/}
         <div className="chart-container">
           {chartData.labels.length > 0 ? (
               <Line data={chartData} options={options} />
           ) : (
               <p>Loading data...</p>
           )}
+          <button className="go-back-button" onClick={() => navigate(-1)}>
+            Go Back
+          </button>
         </div>
       </div>
   );
